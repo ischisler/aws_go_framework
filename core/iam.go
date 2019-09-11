@@ -397,11 +397,11 @@ iam_Menu:
 			return
 		}
 
-		for user := range user_result.Users {
+		for i, user := range user_result.Users {
 			if user == nil {
 				continue
 			}
-			fmt.Printf("%s\n", *user.UserName)
+			fmt.Printf("(%d) %s\n", i, *user.UserName)
 		}
 
 		//	fmt.Println(user_result)
