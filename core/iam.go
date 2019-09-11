@@ -177,7 +177,7 @@ iam_Menu:
 			return
 		}
 
-		fmt.Printf("AccessKeyId: %s\nSecretAccessKey: %s\n", result.AccessKey.AccessKeyId, result.AccessKey.SecretAccessKey)
+		fmt.Printf("AccessKeyId: %s\nSecretAccessKey: %s\n", *result.AccessKey.AccessKeyId, *result.AccessKey.SecretAccessKey)
 		goto iam_Menu
 	case 2:
 		reader := bufio.NewReader(os.Stdin)
