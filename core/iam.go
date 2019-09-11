@@ -434,7 +434,7 @@ iam_Menu:
 			if key == nil {
 				continue
 			}
-			fmt.Println(key.AccessKeyId)
+			fmt.Println(i, key.AccessKeyId)
 		}
 
 		//fmt.Println(result.AccessKeyMetadata)
