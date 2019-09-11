@@ -397,10 +397,17 @@ iam_Menu:
 			return
 		}
 
-		fmt.Println(user_result)
+		for i, user := range user_result.Users {
+			if user == nil {
+				continue
+			}
+			fmt.Printf("%s\n", *user.UserName)
+		}
+
+		//	fmt.Println(user_result)
 
 		reader := bufio.NewReader(os.Stdin)
-		fmt.Println("UserName of Access Keys: ")
+		fmt.Println("Which Users Access Keys?: ")
 		user_name, err := reader.ReadString('\n')
 		if err != nil {
 			fmt.Printf("Error: %v\n", err)

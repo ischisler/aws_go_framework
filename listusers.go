@@ -5,6 +5,7 @@ import (
 	//"reflect"
 	//      "github.com/aws/aws-sdk-go/service/iam"
 	//      "github.com/aws/aws-sdk-go/aws/credentials"
+	//	"encoding/json"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/iam"
@@ -33,6 +34,12 @@ func main() {
 		return
 	}
 
-	fmt.Println(result)
-
+	//	json_msg, err := json.Marshal(result)
+	//	fmt.Println(result.Users.UserName)
+	for i, user := range result.Users {
+		if user == nil {
+			continue
+		}
+		fmt.Printf("%d user %s created %v\n", i, *user.UserName, user.CreateDate)
+	}
 }
