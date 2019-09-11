@@ -300,7 +300,8 @@ iam_Menu:
 			AccessKeyId: aws.String(strings.TrimSpace(access_key)),
 		}
 
-		result, err := svc.DeleteAccessKey(input)
+		//result, err := svc.DeleteAccessKey(input)
+		_, err := svc.DeleteAccessKey(input)
 		if err != nil {
 			if aerr, ok := err.(awserr.Error); ok {
 				switch aerr.Code() {
