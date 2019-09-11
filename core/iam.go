@@ -404,8 +404,6 @@ iam_Menu:
 			fmt.Printf("(%d) %s\n", i, *user.UserName)
 		}
 
-		//	fmt.Println(user_result)
-
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Println("Which Users Access Keys?: ")
 		user_name, err := reader.ReadString('\n')
@@ -434,11 +432,9 @@ iam_Menu:
 			if key == nil {
 				continue
 			}
-			//fmt.Println("%i, *key.AccessKeyId)
-			fmt.Printf("(%d) %s\n", i, *key.AccessKeyId)
+			fmt.Printf("(%d) Key ID: %s Create Date: %v\n", i, *key.AccessKeyId, key.CreateDate)
 		}
 
-		//fmt.Println(result.AccessKeyMetadata)
 		goto iam_Menu
 	case 8:
 		input := &iam.ListVirtualMFADevicesInput{}
