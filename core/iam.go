@@ -119,6 +119,32 @@ iam_Menu:
 
 		goto iam_Menu
 	case 1:
+		svc := iam.New(sess)
+		user_input := &iam.ListUsersInput{}
+
+		user_result, err := svc.ListUsers(user_input)
+		if err != nil {
+			if aerr, ok := err.(awserr.Error); ok {
+				switch aerr.Code() {
+				case iam.ErrCodeServiceFailureException:
+					fmt.Println(iam.ErrCodeServiceFailureException, aerr.Error())
+				default:
+					fmt.Println(aerr.Error())
+				}
+			} else {
+				// Print the error, cast err to awserr.Error to get the Code and
+				// Message from an error.
+				fmt.Println(err.Error())
+			}
+			return
+		}
+
+		for i, user := range user_result.Users {
+			if user == nil {
+				continue
+			}
+			fmt.Printf("(%d) %s\n", i, *user.UserName)
+		}
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Println("Which User would you like to create access key for: ")
 		user_name, err := reader.ReadString('\n')
