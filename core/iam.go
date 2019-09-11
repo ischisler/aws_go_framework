@@ -378,7 +378,7 @@ iam_Menu:
 		goto iam_Menu
 	case 7:
 		svc := iam.New(session.New())
-		input_users := &iam.ListUsers{}
+		input_users := &iam.ListUsersInput{}
 
 		user_result, err := svc.ListUsers(input_users)
 		if err != nil {
