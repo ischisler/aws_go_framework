@@ -377,6 +377,28 @@ iam_Menu:
 		fmt.Println(result)
 		goto iam_Menu
 	case 7:
+		svc := iam.New(session.New())
+		input_users := &iam.ListUsers{}
+
+		user_result, err := svc.ListUsers(input_users)
+		if err != nil {
+			if aerr, ok := err.(awserr.Error); ok {
+				switch aerr.Code() {
+				case iam.ErrCodeServiceFailureException:
+					fmt.Println(iam.ErrCodeServiceFailureException, aerr.Error())
+				default:
+					fmt.Println(aerr.Error())
+				}
+			} else {
+				// Print the error, cast err to awserr.Error to get the Code and
+				// Message from an error.
+				fmt.Println(err.Error())
+			}
+			return
+		}
+
+		fmt.Println(user_result)
+
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Println("UserName of Access Keys: ")
 		user_name, err := reader.ReadString('\n')

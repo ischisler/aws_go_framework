@@ -3,8 +3,8 @@ package main
 import (
 	//	"bufio"
 	"fmt"
-	"github.com/VerveWireless/sysops-tools/aws/aws_cli_framework/core"
 	"github.com/aws/aws-sdk-go/aws/credentials"
+	"github.com/ischisler/aws_go_framework/core"
 	//	"github.com/ischisler/aws-turbo/core"
 	"github.com/manifoldco/promptui"
 	"log"
