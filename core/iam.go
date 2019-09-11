@@ -431,7 +431,7 @@ iam_Menu:
 			}
 		}
 
-		fmt.Println(result.AccessKeyId)
+		fmt.Println(result.AccessKeyMetadata)
 		goto iam_Menu
 	case 8:
 		input := &iam.ListVirtualMFADevicesInput{}
