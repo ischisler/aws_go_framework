@@ -490,7 +490,8 @@ iam_Menu:
 		if err != nil {
 			fmt.Printf("Error: %v\n", err)
 		}
-		fmt.Printf("Key Last Used: %v\n", policy)
+		//fmt.Printf("Key Last Used: %v\n", policy)
+		fmt.Printf("User: %s\nLast Used: %v\n", *policy.UserName, policy.AccessKeyLastUsed.LastUsedDate)
 		goto iam_Menu
 
 	case 10:
