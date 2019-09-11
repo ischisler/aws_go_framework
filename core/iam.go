@@ -377,7 +377,7 @@ iam_Menu:
 		fmt.Println(result)
 		goto iam_Menu
 	case 7:
-		//svc := iam.New(session.New())
+		svc := iam.New(sess)
 		input := &iam.ListUsersInput{}
 
 		result, err := svc.ListUsers(input)
