@@ -321,7 +321,7 @@ iam_Menu:
 			goto iam_Menu
 		}
 
-		fmt.Println(result)
+		fmt.Printf("Successfully deletion of %s\n", access_key)
 		goto iam_Menu
 	case 5:
 		reader := bufio.NewReader(os.Stdin)
