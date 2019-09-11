@@ -430,7 +430,7 @@ iam_Menu:
 				fmt.Println(err.Error())
 			}
 		}
-		for key := range result {
+		for i, key := range result {
 			if key == nil {
 				continue
 			}
