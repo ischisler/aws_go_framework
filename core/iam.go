@@ -430,14 +430,8 @@ iam_Menu:
 				fmt.Println(err.Error())
 			}
 		}
-		for i, key := range result {
-			if key == nil {
-				continue
-			}
-			fmt.Print("%s key created %v\n", *key.AccessKeyId, key.CreateDate)
-		}
 
-		//fmt.Println(result)
+		fmt.Println(result.AccessKeyId)
 		goto iam_Menu
 	case 8:
 		input := &iam.ListVirtualMFADevicesInput{}
