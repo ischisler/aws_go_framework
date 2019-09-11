@@ -430,8 +430,14 @@ iam_Menu:
 				fmt.Println(err.Error())
 			}
 		}
+		for i, key := range result.AccessKeyMetadata {
+			if key == nil {
+				continue
+			}
+			fmt.Println(key.AccessKeyId)
+		}
 
-		fmt.Println(result.AccessKeyMetadata)
+		//fmt.Println(result.AccessKeyMetadata)
 		goto iam_Menu
 	case 8:
 		input := &iam.ListVirtualMFADevicesInput{}
