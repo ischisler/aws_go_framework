@@ -397,7 +397,7 @@ iam_Menu:
 			return
 		}
 
-		for i, user := range user_result.Users {
+		for user := range user_result.Users {
 			if user == nil {
 				continue
 			}
