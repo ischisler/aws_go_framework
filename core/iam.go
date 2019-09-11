@@ -378,9 +378,9 @@ iam_Menu:
 		goto iam_Menu
 	case 7:
 		svc := iam.New(sess)
-		input := &iam.ListUsersInput{}
+		user_input := &iam.ListUsersInput{}
 
-		result, err := svc.ListUsers(input)
+		user_result, err := svc.ListUsers(user_input)
 		if err != nil {
 			if aerr, ok := err.(awserr.Error); ok {
 				switch aerr.Code() {
@@ -397,7 +397,7 @@ iam_Menu:
 			return
 		}
 
-		for i, user := range result.Users {
+		for i, user := range user_result.Users {
 			if user == nil {
 				continue
 			}
